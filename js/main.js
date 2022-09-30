@@ -51,6 +51,10 @@ elSelect.addEventListener('change', function () {
 	let changeArr = [];
 	List.innerHTML = '';
 
+	if (selVal == 'All') {
+		domView(pokemons, List);
+	}
+
 	pokemons.forEach((el) => {
 		if (el.type.includes(selVal)) {
 			changeArr.push(el);
