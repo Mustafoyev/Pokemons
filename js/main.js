@@ -1,7 +1,6 @@
 let List = document.querySelector('.list');
 let elSelect = document.querySelector('.js-select');
-
-let newArr = new Set();
+let elSel = document.querySelector('.js-sel');
 
 function domView(array, add) {
 	array.forEach((item) => {
@@ -28,14 +27,18 @@ function domView(array, add) {
 		newItem.appendChild(newTime);
 		newItem.appendChild(newText);
 		add.appendChild(newItem);
-
-		item.type.forEach((el) => {
-			newArr.add(el);
-		});
 	});
 }
 
 domView(pokemons, List);
+
+let newArr = new Set();
+
+pokemons.forEach((item) => {
+	item.type.forEach((el) => {
+		newArr.add(el);
+	});
+});
 
 newArr.forEach((val) => {
 	let newOption = document.createElement('option');
@@ -61,4 +64,24 @@ elSelect.addEventListener('change', function () {
 		}
 	});
 	domView(changeArr, List);
+});
+
+elSel.addEventListener('change', function () {
+	let sortArr = [];
+	let sortVal = elSel.value;
+	List.innerHTML = '';
+
+	if (sortVal == 'Aa-Zz') {
+		sortArr = pokemons.sort(
+			(a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0),
+		);
+	}
+
+	if (sortVal == 'Zz-Aa') {
+		sortArr = pokemons.sort(
+			(a, b) => b.name.charCodeAt(0) - a.name.charCodeAt(0),
+		);
+	}
+
+	domView(sortArr, List);
 });

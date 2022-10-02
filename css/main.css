@@ -20,12 +20,21 @@ body {
 	margin: 50px auto;
 }
 
+.select-content {
+	display: flex;
+	align-items: center;
+}
+
 select {
 	display: block;
 	padding: 8px;
 	width: 100%;
 	max-width: 300px;
 	border-radius: 5px;
+}
+
+select + select {
+	margin-left: 10px;
 }
 
 .list {
