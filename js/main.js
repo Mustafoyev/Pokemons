@@ -97,9 +97,9 @@ elBtn.addEventListener('click', function () {
 
 function darkLight() {
 	if (window.localStorage.getItem('theme') == 'dark') {
-		document.body.style.backgroundColor = '#ff00ff';
+		document.body.style.backgroundColor = '#333';
 	} else {
-		document.body.style.backgroundColor = '#fff';
+		document.body.style.backgroundColor = '#ff00ff';
 	}
 }
 
