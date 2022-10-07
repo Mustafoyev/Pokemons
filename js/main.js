@@ -1,6 +1,7 @@
 let List = document.querySelector('.list');
 let elSelect = document.querySelector('.js-select');
 let elSel = document.querySelector('.js-sel');
+const elBtn = document.querySelector('.js-mode');
 
 function domView(array, add) {
 	array.forEach((item) => {
@@ -85,3 +86,21 @@ elSel.addEventListener('change', function () {
 
 	domView(sortArr, List);
 });
+
+let theme = false;
+
+elBtn.addEventListener('click', function () {
+	theme = !theme;
+	window.localStorage.setItem('theme', theme ? 'dark' : 'light');
+	darkLight();
+});
+
+function darkLight() {
+	if (window.localStorage.getItem('theme') == 'dark') {
+		document.body.style.backgroundColor = '#ff00ff';
+	} else {
+		document.body.style.backgroundColor = '#fff';
+	}
+}
+
+darkLight();
