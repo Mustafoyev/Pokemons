@@ -29,8 +29,9 @@ function domView(array, add) {
 		newItem.appendChild(newTime);
 		newItem.appendChild(newText);
 		addFragment.appendChild(newItem);
-		add.appendChild(addFragment);
 	});
+
+	add.appendChild(addFragment);
 }
 
 domView(pokemons, List);
