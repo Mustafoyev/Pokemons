@@ -2,6 +2,7 @@ let List = document.querySelector('.list');
 let elSelect = document.querySelector('.js-select');
 let elSel = document.querySelector('.js-sel');
 const elBtn = document.querySelector('.js-mode');
+let addFragment = document.createDocumentFragment();
 
 function domView(array, add) {
 	array.forEach((item) => {
@@ -27,7 +28,8 @@ function domView(array, add) {
 		newItem.appendChild(newImg);
 		newItem.appendChild(newTime);
 		newItem.appendChild(newText);
-		add.appendChild(newItem);
+		addFragment.appendChild(newItem);
+		add.appendChild(addFragment);
 	});
 }
 
